@@ -338,7 +338,7 @@ switch value
 %                         end
 
 
-                        ind = x_index_mid-sensitivity*n:sensitivity:x_index_mid+sensitivity*n;
+                        ind = x_index_mid-sensitivity*n:sensitivity:x_index_mid+sensitivity*n
                         % boundary conditions on edge of image
                         if ind(1)<1     % if on the left side                            
                             % Find the values (including negative, off the
@@ -364,26 +364,8 @@ switch value
                             % page)
                             newx = [XValues(ind(1)),...
                                 XValues(ind(2)),...
-                                XValues(ind(2)) + ( XValues(ind(2)) - XValues(ind(1)) )]
-                            newy = [YValues(ind(1)),...
-                                y,...   % make the midpoint equal to cursor
-                                YValues(ind(1))]
-
-                            % Find the spline between the n*2+1 points
-                            spline2 = spline(newx,newy)
-                            %fnplt(spline2);
-
-                            % replace the choroid value with this one
-                            for j = ind(1):1536
-                                YValues(j) = ppval(spline2, XValues(j));
-                            end
-                            
-                        else        % you click in the middle                         
-                            % Find the values 
-                            newx = [XValues(ind(1)),...
-                                XValues(ind(2)),...
-                                XValues(ind(3))];
-                            newy = [YValues(ind(1)),...
+                                XValues(ind(2)) + ( XValues(ind(2)) - XValues(ind(1)) )];
+                            newy = [YValues(ind(3)),...
                                 y,...   % make the midpoint equal to cursor
                                 YValues(ind(3))];
 
@@ -392,7 +374,7 @@ switch value
                             %fnplt(spline2);
 
                             % replace the choroid value with this one
-                            for j = ind(1):ind(3)
+                            for j = 1:ind(3)
                                 YValues(j) = ppval(spline2, XValues(j));
                             end
                         end
