@@ -100,6 +100,10 @@ handles.output = hObject;
 % Enlarge figure to full screen.
 set(gcf, 'units','normalized','outerposition',[0 0 1 1]);
 
+% Remove warning about GINPUT(N) requiring a positive, integer, scalar
+% input
+warning('off', 'MATLAB:ginput:InputArgumentZero')
+
 % Update handles structure
 guidata(hObject, handles);
 
@@ -379,9 +383,11 @@ switch value
                     return
                 end
                 [x,y,but]=ginput(0);
-   
-        end
+               
+
+            end
         
+
         %output = editChoroidLine(hObject, eventdata, handles);
         %if (strcmp('stop_edit', output) == 1)  % if clicked outside the image area
         %    set(handles.edit_togglebutton, 'Value', 0); % set button to off
