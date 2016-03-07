@@ -306,7 +306,7 @@ switch value
                         end
 
                         % linear interpolation for sensitivity
-                        sensitivity = floor((-max_sensitivity/max_diff)*diff + max_sensitivity + 1);
+                        sensitivity = floor((-max_sensitivity/max_diff)*diff + max_sensitivity + 10);
 
                         % log interpolation for sensitivity
                         %eqn = logspace(2,0,max_diff);
